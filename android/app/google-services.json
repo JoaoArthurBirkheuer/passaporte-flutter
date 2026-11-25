@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "784179178617",
+    "project_id": "diario-viagens-tdm-jh",
+    "storage_bucket": "diario-viagens-tdm-jh.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784179178617:android:c6ac407e0353356a9c78a8",
+        "android_client_info": {
+          "package_name": "com.joaobirkheuer.diarioviagens"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2DxrPlkwQ6vyp8Mi4rb1mYe7WtWl0vhA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

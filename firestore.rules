@@ -1,0 +1,53 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function autenticado() {
+      return request.auth != null;
+    }
+
+    function dono(userId) {
+      return autenticado() && request.auth.uid == userId;
+    }
+
+    function lugarValido(lugar) {
+      return lugar.nome is string
+        && lugar.nome.size() > 0
+        && lugar.nome.size() <= 120
+        && lugar.categoria is string
+        && lugar.categoria.size() > 0
+        && lugar.avaliacao is int
+        && lugar.avaliacao >= 1
+        && lugar.avaliacao <= 5
+        && lugar.latitude is number
+        && lugar.latitude >= -90
+        && lugar.latitude <= 90
+        && lugar.longitude is number
+        && lugar.longitude >= -180
+        && lugar.longitude <= 180
+        && (!('status' in lugar) || lugar.status in ['visitado', 'planejado']);
+    }
+
+    match /users/{userId} {
+      allow read, update, delete: if dono(userId);
+      allow create: if dono(userId)
+        && request.resource.data.uid == userId
+        && request.resource.data.email is string;
+
+      match /lugares/{lugarId} {
+        allow read, delete: if dono(userId);
+        allow create, update: if dono(userId) && lugarValido(request.resource.data);
+      }
+
+      match /ia_historico/{historicoId} {
+        allow read, delete: if dono(userId);
+        allow create: if dono(userId)
+          && request.resource.data.tipo in ['roteiro', 'dicas', 'resumo']
+          && request.resource.data.prompt is string
+          && request.resource.data.prompt.size() > 0
+          && request.resource.data.resposta is string
+          && request.resource.data.resposta.size() > 0;
+      }
+    }
+  }
+}

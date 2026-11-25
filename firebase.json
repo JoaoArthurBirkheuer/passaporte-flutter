@@ -1,0 +1,54 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "diario-viagens-tdm-jh",
+          "appId": "1:784179178617:android:c6ac407e0353356a9c78a8",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "diario-viagens-tdm-jh",
+          "configurations": {
+            "android": "1:784179178617:android:c6ac407e0353356a9c78a8",
+            "web": "1:784179178617:web:c4815d786828a7c29c78a8"
+          }
+        }
+      }
+    }
+  },
+  "auth": {
+    "providers": {
+      "emailPassword": true,
+      "googleSignIn": {
+        "oAuthBrandDisplayName": "Passaporte",
+        "supportEmail": "JoaoArthurBirkheuer@users.noreply.github.com",
+        "authorizedRedirectUris": [
+          "http://localhost",
+          "https://diario-viagens-tdm-jh.firebaseapp.com",
+          "https://diario-viagens-tdm-jh.web.app"
+        ]
+      }
+    }
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "hosting": {
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Passaporte: diário de viagens com mapa e inteligência artificial.">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Passaporte">
+  <link rel="apple-touch-icon" href="favicon.png">
+
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>Passaporte</title>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #F6F4EF;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    #splash {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      color: #0F766E;
+    }
+    #splash .logo {
+      width: 84px;
+      height: 84px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, #0F766E, #115E59);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 40px;
+      box-shadow: 0 10px 30px rgba(15, 118, 110, 0.25);
+    }
+    #splash .name {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+    #splash .hint {
+      font-size: 14px;
+      color: #6B7280;
+    }
+  </style>
+</head>
+<body>
+  <div id="splash">
+    <div class="logo">✈</div>
+    <div class="name">Passaporte</div>
+    <div class="hint">Preparando sua próxima viagem...</div>
+  </div>
+
+  <script>
+    function removerSplash() {
+      var splash = document.getElementById('splash');
+      if (splash) splash.remove();
+    }
+    window.addEventListener('flutter-first-frame', removerSplash);
+    setTimeout(removerSplash, 12000);
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
