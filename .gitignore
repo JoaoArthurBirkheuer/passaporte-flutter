@@ -49,3 +49,6 @@ dart_defines.json
 
 # Firebase CLI cache
 .firebase/
+
+# Build artifacts (APKs)
+/dist/
