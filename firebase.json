@@ -24,7 +24,6 @@
       "emailPassword": true,
       "googleSignIn": {
         "oAuthBrandDisplayName": "Passaporte",
-        "supportEmail": "JoaoArthurBirkheuer@users.noreply.github.com",
         "authorizedRedirectUris": [
           "http://localhost",
           "https://diario-viagens-tdm-jh.firebaseapp.com",
